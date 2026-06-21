@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>开云 · 简明指南</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background: #f2f4f6;
+      color: #1e2a33;
+      line-height: 1.7;
+      padding: 1.5rem;
+    }
+
+    .page {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* hero */
+    .hero {
+      background: #ffffff;
+      border-radius: 28px;
+      padding: 3.2rem 2.4rem;
+      margin-bottom: 2.8rem;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.02), 0 2px 6px rgba(0,0,0,0.03);
+      border: 1px solid #e6eaed;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 2.6rem;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      color: #0d1822;
+      margin-bottom: 1rem;
+    }
+
+    .hero .sub {
+      font-size: 1.1rem;
+      color: #536471;
+      max-width: 650px;
+      margin: 0 auto 1.2rem;
+    }
+
+    .hero .note {
+      background: #f0f3f6;
+      display: inline-block;
+      padding: 0.5rem 1.4rem;
+      border-radius: 40px;
+      font-size: 0.9rem;
+      border: 1px solid #dce2e8;
+      color: #3b4d5c;
+    }
+
+    /* 通用卡片 */
+    .card {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 2rem 2.2rem;
+      border: 1px solid #e2e8ed;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+      transition: box-shadow 0.2s;
+    }
+
+    .card:hover {
+      box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.8rem;
+      margin-bottom: 2.8rem;
+    }
+
+    .full-card {
+      margin-bottom: 2.8rem;
+    }
+
+    h2 {
+      font-size: 1.7rem;
+      font-weight: 450;
+      letter-spacing: -0.01em;
+      margin-bottom: 1.2rem;
+      color: #13222e;
+    }
+
+    h3 {
+      font-size: 1.25rem;
+      font-weight: 500;
+      margin-bottom: 0.6rem;
+      color: #1a2b38;
+    }
+
+    p {
+      margin-bottom: 1rem;
+      color: #314553;
+    }
+
+    .small-meta {
+      font-size: 0.9rem;
+      color: #617483;
+      border-left: 3px solid #cbd5dd;
+      padding-left: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .faq-item {
+      margin-bottom: 1.6rem;
+    }
+
+    .faq-item strong {
+      display: block;
+      font-weight: 500;
+      margin-bottom: 0.2rem;
+      color: #13222e;
+    }
+
+    .faq-item p {
+      margin-bottom: 0.3rem;
+    }
+
+    .footer-links {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 1.8rem 2.2rem;
+      border: 1px solid #e2e8ed;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 0.8rem;
+    }
+
+    .footer-links .left {
+      font-size: 0.95rem;
+      color: #3d5364;
+    }
+
+    .footer-links .right {
+      font-size: 0.95rem;
+    }
+
+    a {
+      color: #1d6b9b;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.15s;
+    }
+
+    a:hover {
+      border-bottom-color: #1d6b9b;
+    }
+
+    .btn-subtle {
+      display: inline-block;
+      background: #ecf1f5;
+      padding: 0.5rem 1.4rem;
+      border-radius: 40px;
+      font-size: 0.95rem;
+      border: 1px solid #d2dce5;
+      color: #1f3648;
+      transition: background 0.2s;
+    }
+
+    .btn-subtle:hover {
+      background: #dce5ed;
+      border-color: #bccbd8;
+    }
+
+    @media (max-width: 720px) {
+      body {
+        padding: 1rem;
+      }
+
+      .hero {
+        padding: 2.2rem 1.2rem;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .grid-2 {
+        grid-template-columns: 1fr;
+        gap: 1.4rem;
+      }
+
+      .card {
+        padding: 1.6rem 1.2rem;
+      }
+
+      .footer-links {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.8rem;
+      }
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #dde3e9;
+      margin: 1.4rem 0;
+    }
+
+    .inline-link-highlight {
+      background: #eef4f9;
+      padding: 0 0.2rem;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- hero -->
+  <div class="hero">
+    <h1>开云 · 访问简明指南</h1>
+    <p class="sub">一份轻量的索引，关于如何更顺畅地浏览与了解开云。不绕弯，只说有用的事。</p>
+    <div class="note">⚡ 建议收藏 · 日常提醒</div>
+  </div>
+
+  <!-- 优势区 + 说明区（两列） -->
+  <div class="grid-2">
+    <div class="card">
+      <h2>为什么值得留意</h2>
+      <p>开云所提供的内容与功能，围绕信息整合与轻量交互展开。不需要复杂的配置，也没有冗余流程——打开即用，这是它最直接的特点。</p>
+      <p>从结构上看，整个页面偏向克制：重点信息在前，辅助说明在后，不堆砌弹窗或强制跳转。对于习惯快速获取信息的用户来说，这种节奏比较友好。</p>
+      <div class="small-meta">界面干净，导航清晰，没有隐藏选项。</div>
+    </div>
+
+    <div class="card">
+      <h2>使用场景简述</h2>
+      <p>日常查资料、对比信息、或者只是随便看看——<a href="https://web-cn-kai-yun.com" style="font-weight: 450;">开云</a>都能作为一个稳定的起点。它的页面响应速度不错，在各尺寸设备上显示都比较规整。</p>
+      <p>如果你经常需要在几个来源之间切换，开云的布局可以减少翻找的时间。尤其适合那些希望专注于内容本身、而不是被界面干扰的人。</p>
+      <div class="small-meta">无需注册，直接浏览。</div>
+    </div>
+  </div>
+
+  <!-- 说明区 扩展 + 访问提醒 -->
+  <div class="card full-card">
+    <h2>一些来自实践中的提醒</h2>
+    <p>使用任何网站时，保持简单的习惯往往最有效。对于开云，这里有几个实际的小建议：</p>
+    <ul style="margin-left: 1.6rem; margin-bottom: 1.2rem; color: #314553;">
+      <li>如果页面加载稍慢，可以先刷新一次，多数情况下能解决。</li>
+      <li>移动端访问时，横屏浏览通常会获得更舒适的阅读宽度。</li>
+      <li>遇到显示异常，可以检查浏览器是否为最新版本。</li>
+      <li>重要信息建议先截屏或记录，避免临时需要时网络波动。</li>
+    </ul>
+    <p>这些提醒听起来很简单，但在匆忙时很容易被忽略。另外，如果需要再次找到开云，可以在书签里保存 <a href="https://web-cn-kai-yun.com">开云</a> 的地址，方便日后直接回来。</p>
+  </div>
+
+  <!-- FAQ 摘要 -->
+  <div class="card full-card">
+    <h2>常见疑问摘要</h2>
+    <div class="faq-item">
+      <strong>开云需要下载应用吗？</strong>
+      <p>不需要。直接在浏览器中打开网站即可使用全部内容，无需安装任何软件。</p>
+    </div>
+    <div class="faq-item">
+      <strong>内容更新频率如何？</strong>
+      <p>保持稳定的更新节奏，但不会频繁推送。适合隔一段时间回来看一次。</p>
+    </div>
+    <div class="faq-item">
+      <strong>在不同设备上体验一致吗？</strong>
+      <p>基本一致。电脑、平板和手机都能正常显示，部分交互在宽屏下体验更好。</p>
+    </div>
+    <div class="faq-item">
+      <strong>有没有使用上的限制？</strong>
+      <p>没有特殊限制。遵守常规的网络使用规范即可，没有强制注册或付费环节。</p>
+    </div>
+    <hr>
+    <p style="font-size: 0.95rem;">更多细节可以在使用过程中慢慢发现。如果遇到不在列表中的问题，多数情况下换个时段再试就能解决。</p>
+  </div>
+
+  <!-- 底部链接 -->
+  <div class="footer-links">
+    <div class="left">
+      <span>开云 · 简明指南 &mdash; 仅作信息参考</span>
+    </div>
+    <div class="right">
+      <a href="https://web-cn-kai-yun.com" class="btn-subtle">开云</a>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
