@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>爱游戏 · 日常查询与延伸阅读</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(145deg, #fce6cf 0%, #f5d5b0 50%, #efc59a 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1.5rem;
+    }
+
+    /* 主卡片 — 暖白圆角容器 */
+    .card {
+      max-width: 820px;
+      width: 100%;
+      background: rgba(255, 248, 238, 0.92);
+      backdrop-filter: blur(2px);
+      border-radius: 48px 24px 48px 24px;
+      box-shadow: 0 20px 40px -12px rgba(160, 100, 50, 0.25), 0 8px 16px rgba(0,0,0,0.04);
+      padding: 2.8rem 2.4rem;
+      transition: box-shadow 0.2s ease;
+    }
+
+    @media (max-width: 500px) {
+      .card {
+        padding: 2rem 1.2rem;
+        border-radius: 32px 16px 32px 16px;
+      }
+    }
+
+    /* 开场短句 — 像引子 */
+    .opening {
+      font-size: 1.5rem;
+      font-weight: 380;
+      letter-spacing: 0.02em;
+      line-height: 1.5;
+      color: #4f3a28;
+      border-left: 5px solid #d9a066;
+      padding-left: 1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    .opening em {
+      font-style: normal;
+      background: linear-gradient(135deg, #b3713a, #905e2b);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 520;
+    }
+
+    /* 承接段落 — 平实叙述 */
+    .intro-text {
+      color: #3f2f1f;
+      line-height: 1.8;
+      font-size: 1.05rem;
+      margin-bottom: 2.2rem;
+    }
+
+    .intro-text a {
+      color: #ae6d37;
+      font-weight: 500;
+      text-decoration: none;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .intro-text a:hover {
+      border-bottom-color: #b4783e;
+      color: #7f5530;
+    }
+
+    /* 特点列表 — 温和卡片感 */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+      margin: 2.4rem 0 1.6rem;
+    }
+
+    @media (max-width: 580px) {
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .feature-item {
+      background: #fffcf3;
+      padding: 1.2rem 1.2rem 1.2rem 1.6rem;
+      border-radius: 40px 12px 40px 12px;
+      box-shadow: 0 4px 10px rgba(140, 90, 40, 0.06);
+      border: 1px solid #f5e4d0;
+      transition: transform 0.15s, box-shadow 0.2s;
+    }
+
+    .feature-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 14px rgba(150, 90, 30, 0.08);
+    }
+
+    .feature-item strong {
+      display: block;
+      font-size: 1.1rem;
+      font-weight: 520;
+      color: #5b3f26;
+      margin-bottom: 0.3rem;
+    }
+
+    .feature-item p {
+      color: #5f4a32;
+      font-size: 0.96rem;
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    /* 场景 / 延伸阅读区域 */
+    .scene-section {
+      background: rgba(242, 224, 200, 0.35);
+      border-radius: 32px 10px 32px 10px;
+      padding: 1.6rem 1.6rem 1.6rem 2rem;
+      margin: 2rem 0 1.8rem;
+      border-left: 4px solid #dbaa7a;
+    }
+
+    .scene-section h3 {
+      font-size: 1.2rem;
+      font-weight: 450;
+      color: #4c3621;
+      margin-bottom: 0.8rem;
+      letter-spacing: 0.5px;
+    }
+
+    .scene-section ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .scene-section li {
+      position: relative;
+      padding-left: 1.8rem;
+      margin-bottom: 0.7rem;
+      color: #402f1d;
+      font-size: 0.98rem;
+      line-height: 1.6;
+    }
+
+    .scene-section li::before {
+      content: "·";
+      position: absolute;
+      left: 0.2rem;
+      color: #b57942;
+      font-size: 1.7rem;
+      line-height: 1;
+      top: -0.2rem;
+    }
+
+    /* 温和结尾 + FAQ 摘要风格 */
+    .closing-note {
+      background: #fff9f0;
+      border-radius: 20px 8px 20px 8px;
+      padding: 1.4rem 1.6rem;
+      margin-top: 1.8rem;
+      border: 1px solid #ecdac8;
+      font-size: 0.98rem;
+      color: #3f2f1d;
+      line-height: 1.7;
+    }
+
+    .closing-note strong {
+      font-weight: 530;
+      color: #6d4f30;
+    }
+
+    .closing-note a {
+      color: #ab6d37;
+      font-weight: 500;
+      text-decoration: none;
+      border-bottom: 1px dotted #c79461;
+      transition: border-bottom-style 0.2s;
+    }
+
+    .closing-note a:hover {
+      border-bottom-style: solid;
+      color: #885830;
+    }
+
+    .faq-hint {
+      display: inline-block;
+      background: #f1ddd0;
+      border-radius: 40px;
+      padding: 0.2rem 1rem 0.2rem 0.9rem;
+      font-size: 0.9rem;
+      color: #4c3724;
+      margin-top: 0.3rem;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #ebd6c0;
+      margin: 1.8rem 0 0.8rem;
+      opacity: 0.5;
+    }
+
+    .footer-meta {
+      text-align: right;
+      font-size: 0.85rem;
+      color: #947b64;
+      margin-top: 0.6rem;
+    }
+
+    /* 响应式微调 */
+    @media (max-width: 450px) {
+      .opening {
+        font-size: 1.25rem;
+        padding-left: 1rem;
+      }
+      .feature-item {
+        padding: 1rem 1rem 1rem 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <!-- 开场短句 -->
+    <div class="opening">
+      <em>翻看、对照、顺着线索读下去</em> —— 一个日常查询的落脚点。
+    </div>
+
+    <!-- 承接段落 —— 从查询场景引入 -->
+    <div class="intro-text">
+      <p>遇到游戏信息想要核对时，很多人习惯先打开几个站对照着看。除了版本号、活动日历、角色图鉴这些硬性内容，有时也会想找找某个设定背后的原案，或是某句台词的原文。这种时候，一个条目清晰、更新有节奏的地方就特别实用。</p>
+      <p style="margin-top: 1rem;">
+        正好，<a href="https://linemobile-igame.com">爱游戏</a> 整理的索引和说明页，常常能帮上忙。条目之间链接自然，不用反复跳转，就能顺着读下去。
+      </p>
+    </div>
+
+    <!-- 特点列表 (温和卡片) -->
+    <div class="feature-grid">
+      <div class="feature-item">
+        <strong>📋 条目式索引</strong>
+        <p>按系列、主题组织，每一条都可以作为起点，顺着链接延伸阅读。</p>
+      </div>
+      <div class="feature-item">
+        <strong>🔎 对照友好</strong>
+        <p>关键数值、时间线、版本差异并列呈现，方便快速比对。</p>
+      </div>
+      <div class="feature-item">
+        <strong>📎 引用与出处</strong>
+        <p>部分说明附有参考来源或注释，适合进一步查证。</p>
+      </div>
+      <div class="feature-item">
+        <strong>🧩 轻量叙述</strong>
+        <p>不做长篇评测或引导，只把信息平实整理出来。</p>
+      </div>
+    </div>
+
+    <!-- 场景 + 延伸阅读 区块 -->
+    <div class="scene-section">
+      <h3>一些可以延伸阅读的日常场景</h3>
+      <ul>
+        <li>想确认某个活动的开启时间范围，直接找到对应月份的整理页，不用翻好几屏。</li>
+        <li>看到新角色技能描述里提到旧机制，顺着内链就能回顾以前的效果说明。</li>
+        <li>偶尔会有人把几期的奖励列表放在一起，方便估算整体资源获取量。</li>
+        <li>一些冷门道具的获取途径，反而在边栏注释里写得更清楚。</li>
+      </ul>
+      <div style="margin-top: 0.8rem; font-size: 0.93rem; color: #5b4631;">
+        ⚡ 如果有自己常用的对照路径，不妨和 <a href="https://linemobile-igame.com" style="font-weight:500; border-bottom:1px dashed #b8895a;">爱游戏</a> 的索引搭配使用，效率更高。
+      </div>
+    </div>
+
+    <!-- 温和结尾 + FAQ 摘要风格 -->
+    <div class="closing-note">
+      <strong>一些经常被问到的 · 简略版</strong>
+      <div style="margin-top: 0.5rem;">
+        <p><span style="font-weight:500;">Q：</span> 这里的条目会经常更新吗？<br>
+        <span style="font-weight:500;">A：</span> 看板块，活动类和版本同步的内容更新比较勤，背景资料类则会按批次补充。</p>
+        <p style="margin-top:0.3rem;"><span style="font-weight:500;">Q：</span> 可以拿来做二次整理或引用吗？<br>
+        <span style="font-weight:500;">A：</span> 建议先对照原始出处，索引本身以整理和链接为主，直接引用时注意核实。</p>
+      </div>
+      <div class="faq-hint">
+        📌 更多细节可以直接在站内对应页面查找
+      </div>
+    </div>
+
+    <hr>
+
+    <!-- 再次自然嵌入链接，但不重复 “进入/点击” 等指令词 -->
+    <div style="color: #4b3826; font-size: 0.96rem; line-height: 1.6;">
+      <p>如果你平时习惯把几个站并排对照着看，可以试试把 <a href="https://linemobile-igame.com">爱游戏</a> 加入那个对照组。它的目录结构比较规整，顺着条目走不太会迷路。</p>
+    </div>
+
+    <div class="footer-meta">
+      — 按日常查询习惯整理 · 供延伸阅读用
+    </div>
+  </div>
+</body>
+</html>
